@@ -1,0 +1,194 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+}
+* { box-sizing: border-box; }
+
+/* 16:9 */
+.area16x9 {
+  width: 100vw;
+  aspect-ratio: 16 / 9;
+  background: #1F1F20;
+  position: relative;
+  overflow: hidden;
+}
+
+/* トップバー */
+.topbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 2vw;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  padding-left: 0.8vw;
+  gap: 1vw;
+  font-size: 0.8vw;
+  z-index: 10;
+}
+
+.menu { position: relative; cursor: pointer; }
+
+/* ツールバー dropdown */
+.topbar .dropdown {
+  display: none;
+  position: absolute;
+  top: 2vw;
+  left: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  min-width: 8vw;
+  z-index: 20;
+}
+.topbar .dropdown div {
+  padding: 0.4vw 0.6vw;
+  color: #000;
+}
+.topbar .dropdown div:hover { background: #eee; }
+.menu.open .dropdown { display: block; }
+
+/* ヘッダー */
+.header {
+  position: absolute;
+  top: 2.2vw;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 0.8vw;
+  color: #D5D5D5;
+  margin-bottom: 0.2vw;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background: #000;
+  position: relative;
+}
+
+/* メディアプール 見出し */
+.left-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 30vw;
+  pointer-events: none;
+}
+.left-text {
+  position: absolute;
+  top: 0.2vw;
+  left: 0.8vw;
+  font-size: 0.8vw;
+  color: #D5D5D5;
+}
+.left-overlay-line {
+  position: absolute;
+  top: calc(0.2vw + 0.8vw + 0.2vw);
+  left: 0;
+  width: 30vw;
+  height: 1px;
+  background: #000;
+}
+
+/* メディアプール */
+.media-pool {
+  position: absolute;
+  top: calc(2.2vw + 1px);
+  left: 0;
+  width: 30vw;
+  padding: 0.6vw;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6vw;
+  z-index: 1;
+}
+
+.media-item {
+  width: calc((100% - 3 * 0.6vw) / 4);
+  font-size: 0.6vw;
+  color: #D5D5D5;
+  position: relative;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.media-item img,
+.media-item video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #000;
+}
+
+.media-name {
+  margin-top: 0.2vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* アイテム dropdown */
+.media-item .dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #1F1F20;
+  border: 1px solid #000;
+  min-width: 100%;
+  z-index: 20;
+}
+.media-item .dropdown div {
+  padding: 0.4vw 0.6vw;
+  color: #D5D5D5;
+  cursor: pointer;
+}
+.media-item .dropdown div:hover {
+  background: #333;
+}
+.media-item.open .dropdown {
+  display: block;
+}
+
+/* プレビュー */
+.box-wrap {
+  position: relative;
+  width: 40vw;
+}
+.box169 {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+.vline {
+  position: absolute;
+  top: 0;
+  bottom: -4vw;
+  width: 1px;
+  background: #000;
+}
+.vline.left { left: 0; }
+.vline.right { right: 0; }
+
+/* 下部線 */
+.line-bottom {
+  width: 100%;
+  height: 1px;
+  background: #000;
+  margin-top: 4vw;
+}
+.line-extra {
+  width: 100%;
+  height: 1px;
+  background: #000;
+  margin-top: 3vw;
+}
